@@ -1,14 +1,16 @@
 package com.lcx.demo.service.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/home")
 public class HomeController {
 
-    @RequestMapping("")
+    @RequestMapping("/index")
+    @ResponseBody
     public String index(){
-        return "service OK.";
+        return "classpath:/html/websocket";
     }
 }

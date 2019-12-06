@@ -19,13 +19,21 @@ spring:
         tags: dev
     gateway:
       routes:
+        - id: service-websocket
+          uri: lb://service
+          order: 9000
+          predicates:
+            - Path=/ws/**
+          filters:
+              - StripPrefix=1
         - id: service
           uri: lb://service
-          order: 10000
+          order: 8000
           predicates:
             - Path=/service/**
           filters:
-            - StripPrefix= 1
+              - StripPrefix=1
+
 
 logging:
   level:
